@@ -7,8 +7,6 @@
 <h1>Dodaj zdjecie</h1>
 <form asp-controller="Photo" asp-action="Create" method="post">
 
-
-
     <label asp-for="Data"></label>
     <input class="form-control" asp-for="Data" />
     <span class="text-danger" asp-validation-for="Data"></span>
@@ -32,8 +30,13 @@
     <label asp-for="Format"></label>
     <input class="form-control" asp-for="Format" />
     <span class="text-danger" asp-validation-for="Format"></span>
-    <button type="submit">Dodaj</button>
 
+    <label asp-for="Priority"></label>
+    <div>
+        <span asp-validation-for="Priority" class="text-danger"></span>
+    </div>
+    <select class="form-control" asp-for="Priority" asp-items="@Html.GetEnumSelectList(typeof(Priority))"></select>
+    <button type="submit">Dodaj</button>
 
     <a asp-controller="Photo" asp-action="Index" method="post">
         <button type="button">Powrót</button>

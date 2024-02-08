@@ -11,17 +11,22 @@ namespace Data.Entities
     [Table("photos")]
     public class PhotoEntity
     {
-        [Key]
         public int Id { get; set; }
-        [MaxLength(50)]
+        [Column("Data")]
+        [DataType(DataType.Date)]
         [Required]
         public DateTime Data { get; set; }
+        [MaxLength(100)]
         public string Opis { get; set; }
+        [MaxLength(30)]
         public string Aparat {  get; set; }
+        [Required]
         public string Autor { get; set; }
         [Required] 
         public string Resolution { get; set; }
+        [Required]
         public string Format { get; set; }
+        public int Priority { get; set; }
        
     }
 }

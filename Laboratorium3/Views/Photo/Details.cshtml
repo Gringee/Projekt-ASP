@@ -31,6 +31,13 @@
     <input class="form-control" asp-for="Format" readonly />
     <span class="text-danger" asp-validation-for="Format"></span>
 
+    <label asp-for="Priority"></label>
+    <span asp-validation-for="Priority" class="text-danger"></span>
+    <div class="form-control" readonly>
+        @Html.DisplayFor(model => model.Priority) @*Tylko wyświetlanie, więc nie potrzebna lista rozwijana*@
+    </div>
+
+    <br/>
     <button type="submit">Wróć</button>
 
 </form>

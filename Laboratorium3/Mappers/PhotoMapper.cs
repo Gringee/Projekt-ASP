@@ -16,6 +16,7 @@ namespace Laboratorium3.Mappers
                 Aparat = entity.Aparat,
                 Resolution = entity.Resolution,
                 Format = entity.Format,
+                Priority = entity.Priority,
             };
         }
 
@@ -30,6 +31,7 @@ namespace Laboratorium3.Mappers
                 Aparat = model.Aparat,
                 Resolution = model.Resolution,
                 Format = model.Format,
+                Priority = model.Priority,
             };
         }
     }

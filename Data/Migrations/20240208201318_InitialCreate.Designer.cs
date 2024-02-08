@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240208172550_InitialCreate2")]
-    partial class InitialCreate2
+    [Migration("20240208201318_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,6 +28,7 @@ namespace Data.Migrations
 
                     b.Property<string>("Aparat")
                         .IsRequired()
+                        .HasMaxLength(30)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Autor")
@@ -35,8 +36,8 @@ namespace Data.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("Data")
-                        .HasMaxLength(50)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasColumnName("Data");
 
                     b.Property<string>("Format")
                         .IsRequired()
@@ -44,7 +45,11 @@ namespace Data.Migrations
 
                     b.Property<string>("Opis")
                         .IsRequired()
+                        .HasMaxLength(100)
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("Priority")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Resolution")
                         .IsRequired()
@@ -61,8 +66,20 @@ namespace Data.Migrations
                             Aparat = "Nikon",
                             Autor = "Adam",
                             Data = new DateTime(2000, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Format = "4x3",
+                            Opis = "zdjęcie z tatr",
+                            Priority = 2,
+                            Resolution = "800x600"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Aparat = "Samsung",
+                            Autor = "Paweł",
+                            Data = new DateTime(2022, 11, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Format = "16x9",
-                            Opis = "zdjecie z tatr",
+                            Opis = "zdjęcie z rodziną",
+                            Priority = 1,
                             Resolution = "1920x1080"
                         });
                 });
