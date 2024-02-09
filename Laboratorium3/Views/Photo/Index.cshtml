@@ -5,7 +5,7 @@
 @{
 }
 <link rel="stylesheet" href="~/css/PhotoSite.css" asp-append-version="true" />
-<h1>Spis Zdjęć</h1>
+<h1>Spis zdjęć do wydruku</h1>
 <a class="btn btn-primary" asp-controller="Photo" asp-action="Create">Dodaj zdjęcie</a>
 <table class="table">
     <thead>
@@ -46,7 +46,7 @@
 
             <tr>
                 <td>
-                    @item.Data.ToString()
+                    @item.Data.ToShortDateString()
                 </td>
                 <td>
                     @item.Opis
@@ -67,19 +67,19 @@
                 <td>
                     @if (item.Priority == 1)
                     {
-                        <span>Niski</span>
+                        <span id="priorytetNiski">Niski</span>
                     }
                     else if (item.Priority == 2)
                     {
-                        <span>Średni</span>
+                        <span id="priorytetSredni">Średni</span>
                     }
                     else if (item.Priority == 3)
                     {
-                        <span>Wysoki</span>
+                        <span id="priorytetWysoki">Wysoki</span>
                     }
                     else
                     {
-                        <span>Pilny</span>
+                        <span id="priorytetPilny">Pilny</span>
                     }
                 </td>
 

@@ -19,7 +19,7 @@ namespace Testy_Jednostkowe
                 Opis = "Opis Testowy",
                 Aparat = "Aparat Testowy",
                 Autor = "Autor Testowy",
-                Resolution = "InvalidResolution", 
+                Resolution = "1920x1080", 
                 Format = "16x9",
                 Priority = 1
             };
@@ -66,7 +66,7 @@ namespace Testy_Jednostkowe
                 Autor = "Autor Testowy",
                 Resolution = "1920x1080",
                 Format = "16x9",
-                Priority = 1
+                Priority = 100
             };
 
             photo.Data = DateTime.MinValue; 
