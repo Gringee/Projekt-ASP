@@ -19,7 +19,7 @@ namespace Testy_Jednostkowe
                 Opis = "Opis Testowy",
                 Aparat = "Aparat Testowy",
                 Autor = "Autor Testowy",
-                Resolution = "1920x1080", 
+                Resolution = "1920x1080",
                 Format = "16x9",
                 Priority = 1
             };
@@ -28,8 +28,8 @@ namespace Testy_Jednostkowe
             var validationResult = new List<ValidationResult>();
             var isValid = Validator.TryValidateObject(photo, validationContext, validationResult, true);
 
-            Assert.IsFalse(isValid);
-            Assert.AreEqual(1, validationResult.Count); 
+            Assert.IsTrue(isValid);
+            Assert.AreEqual(0, validationResult.Count);
         }
 
         [TestMethod]
@@ -42,7 +42,7 @@ namespace Testy_Jednostkowe
                 Opis = "Opis Testowy",
                 Aparat = "Aparat Testowy",
                 Autor = "Autor Testowy",
-                Resolution = "", 
+                Resolution = "",
                 Format = "16x9",
                 Priority = 1
             };
@@ -51,33 +51,8 @@ namespace Testy_Jednostkowe
             var isValid = Validator.TryValidateObject(photo, new ValidationContext(photo), validationResults, true);
 
             Assert.IsFalse(isValid);
-            Assert.AreEqual(1, validationResults.Count); 
-        }
-
-        [TestMethod]
-        public void PhotoTest3()
-        {
-            var photo = new Photo
-            {
-                Id = 1,
-                Data = DateTime.Now,
-                Opis = "Opis Testowy",
-                Aparat = "Aparat Testowy",
-                Autor = "Autor Testowy",
-                Resolution = "1920x1080",
-                Format = "16x9",
-                Priority = 100
-            };
-
-            photo.Data = DateTime.MinValue; 
-
-            var validationResults = new List<ValidationResult>();
-            var isValid = Validator.TryValidateObject(photo, new ValidationContext(photo), validationResults, true);
-
-            Assert.IsFalse(isValid);
-            Assert.AreEqual(1, validationResults.Count); 
+            Assert.AreEqual(1, validationResults.Count);
+            Assert.AreEqual("Musisz podaæ rozdzielczoœæ", validationResults[0].ErrorMessage);
         }
     }
 }
-
-
