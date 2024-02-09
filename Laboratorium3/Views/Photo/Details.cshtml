@@ -36,6 +36,9 @@
     <div class="form-control" readonly>
         @Html.DisplayFor(model => model.Priority) @*Tylko wyświetlanie, więc nie potrzebna lista rozwijana*@
     </div>
+    <div class="form-group" readonly>
+        <select class="form-control" asp-for="OrganizationId" asp-items="@Model.Organizations"></select>
+    </div>
 
     <br/>
     <button type="submit">Wróć</button>

@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
 
 namespace Laboratorium3.Models
@@ -27,7 +29,7 @@ namespace Laboratorium3.Models
         public string Autor { get; set; }
 
         [Display(Name = "Rozdzielczość")]
-        [RegularExpression(@"^\d{4}x\d{3}$", ErrorMessage = "Rozdzielczość musi być w formacie np. 1920x1080")]
+        //[RegularExpression(@"^\d{4}x\d{3}$", ErrorMessage = "Rozdzielczość musi być w formacie np. 1920x1080")]
         [Required(ErrorMessage = "Musisz podać rozdzielczość")]
         public string Resolution { get; set; }
         [Display(Name = "Format")]
@@ -36,5 +38,9 @@ namespace Laboratorium3.Models
         public string Format { get; set; }
         [Display(Name = "Priorytet")]
         public int Priority { get; set; }
+        [HiddenInput]
+        public int OrganizationId { get; set; }
+        [ValidateNever]
+        public List<SelectListItem> Organizations { get; set; }
     }
 }

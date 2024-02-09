@@ -17,6 +17,7 @@ namespace Laboratorium3.Mappers
                 Resolution = entity.Resolution,
                 Format = entity.Format,
                 Priority = entity.Priority,
+                OrganizationId = entity.OrganizationId,
             };
         }
 
@@ -32,6 +33,7 @@ namespace Laboratorium3.Mappers
                 Resolution = model.Resolution,
                 Format = model.Format,
                 Priority = model.Priority,
+                OrganizationId = model.OrganizationId,
             };
         }
     }

@@ -1,4 +1,6 @@
-﻿namespace Laboratorium3.Models
+﻿using Data.Entities;
+
+namespace Laboratorium3.Models
 {
     public interface IPhotoService
     {
@@ -7,5 +9,6 @@
         void Delete(Photo photo);
         Photo? FindById(int id);
         List<Photo> FindAll();
+        List<OrganizationEntity> FindAllOrganizations();
     }
 }

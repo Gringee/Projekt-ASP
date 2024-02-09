@@ -44,5 +44,10 @@ namespace Laboratorium3.Models
             _context.Photos.Update(PhotoMapper.ToEntity(photo));
             _context.SaveChanges();
         }
+
+        public List<OrganizationEntity> FindAllOrganizations()
+        {
+            return _context.Organizations.ToList();
+        }
     }
 }

@@ -27,6 +27,8 @@ namespace Data.Entities
         [Required]
         public string Format { get; set; }
         public int Priority { get; set; }
-       
+        public int OrganizationId { get; set; }
+        public OrganizationEntity? Organization { get; set; }
+
     }
 }

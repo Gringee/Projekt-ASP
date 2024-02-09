@@ -31,17 +31,17 @@
             <th>
                 @Html.DisplayNameFor(model => model[0].Priority)
             </th>
-           
+
         </tr>
     </thead>
     <tbody>
-       @foreach (Photo item in @Model)
+        @foreach (Photo item in @Model)
         {
             /*int liczba_zdjęć = item.Spis_piosenek.Count();
             var sumaCzasu = TimeSpan.Zero;
             foreach(var piosenka in item.Czas_trwania)
             {
-                sumaCzasu = sumaCzasu.Add(piosenka);
+            sumaCzasu = sumaCzasu.Add(piosenka);
             }*/
 
             <tr>
@@ -53,7 +53,7 @@
                 </td>
                 <td>
                     @item.Aparat
-                   
+
                 </td>
                 <td>
                     @item.Autor
@@ -65,7 +65,22 @@
                     @item.Format
                 </td>
                 <td>
-                    @item.Priority
+                    @if (item.Priority == 1)
+                    {
+                        <span>Niski</span>
+                    }
+                    else if (item.Priority == 2)
+                    {
+                        <span>Średni</span>
+                    }
+                    else if (item.Priority == 3)
+                    {
+                        <span>Wysoki</span>
+                    }
+                    else
+                    {
+                        <span>Pilny</span>
+                    }
                 </td>
 
                 <td>

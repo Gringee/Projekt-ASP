@@ -1,6 +1,7 @@
 ﻿using Laboratorium3.Models;
 using Microsoft.AspNetCore.Mvc;
 using Laboratorium3.Mappers;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Laboratorium3.Controllers
 {
@@ -20,19 +21,29 @@ namespace Laboratorium3.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            return View();
+            Photo model = new Photo();
+            model.Organizations = _photoService
+                .FindAllOrganizations()
+                .Select(o => new SelectListItem() { Value = o.Id.ToString(), Text = o.Title })
+                .ToList();
+            return View(model);
         }
         [HttpPost]
-        public IActionResult Create(Photo model)
+        public IActionResult Create(Photo photo)
         {
+            Photo model = new Photo();
+            model.Organizations = _photoService
+                .FindAllOrganizations()
+                .Select(o => new SelectListItem() { Value = o.Id.ToString(), Text = o.Title })
+                .ToList();
             if (ModelState.IsValid) // nie ma jawnego powiązania ale sprawdza czy model istenieje
             {
-                _photoService.Add(model);
+                _photoService.Add(photo);
                 // zapamietaj kontakt
 
                 return RedirectToAction("Index");
             }
-            return View();
+            return View(model);
 
         }
 
